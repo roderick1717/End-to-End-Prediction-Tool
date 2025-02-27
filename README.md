@@ -25,7 +25,7 @@ Install the Python packages with:
 pip install pandas joblib rdkit cclib openbabel
 ```
 
-## Usage Workflow
+## Usage
 
 You need to first modify the SMILES of the substrate molecules and their solvents in the `SMILES-Target.slurm` script, then submit the job, and finally run the `load_model.py` file.
 The solvents include **DMA** (N,N-Dimethylacetamide), **DMF** (N,N-Dimethylformamide), **DMSO** (Dimethyl sulfoxide), and **ACN** (Acetonitrile).
