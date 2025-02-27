@@ -1,6 +1,6 @@
-# SMILES to Predictions Tool
+# End-to-End-Prediction Tool
 
-This repository contains a tool for end-to-end prediction of molecular properties starting from SMILES strings. It automates the process of generating molecular descriptors using quantum chemical calculations and extracting features, followed by predictions using pre-trained machine learning models. The workflow integrates Gaussian for quantum chemical calculations, Multiwfn and RDKit for descriptor extraction, and pre-trained models for final predictions.
+This tool is designed for the rapid prediction of reactivity and additive selection in the AD-HoC catalytic system. It automates the process of generating molecular descriptors using quantum chemical calculations and feature extraction, followed by predictions using pre-trained machine learning models. The workflow integrates Gaussian for quantum chemical calculations, Multiwfn and RDKit for descriptor extraction, and pre-trained models for final predictions.
 
 ## Dependencies
 
@@ -26,6 +26,6 @@ Install the Python packages with:
 pip install pandas joblib rdkit cclib periodictable
 ```
 
-### Usage Workflow
+## Usage Workflow
 
-Submit the `SMILES-Target.slurm` script first, then run the `load_model.py` file.
+You need to first modify the SMILES of the substrate molecules and their solvents in the `SMILES-Target.slurm` script, then submit the job, and finally run the `load_model.py` file.
