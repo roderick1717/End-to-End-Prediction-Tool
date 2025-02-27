@@ -24,6 +24,7 @@ Install the Python packages with:
 
 ```bash
 pip install pandas joblib rdkit cclib periodictable
+```
 
 ### Usage Workflow
 
