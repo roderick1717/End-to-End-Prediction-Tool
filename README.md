@@ -10,7 +10,6 @@ To use this tool, ensure the following software and Python packages are installe
 
 - **Gaussian 16**: Required for quantum chemical calculations. 
 - **Multiwfn**: Used to extract descriptors from Gaussian output files. 
-- **OpenBabel**: Converts SMILES strings to 3D structures. 
 
 ### Python Packages
 
@@ -18,12 +17,12 @@ To use this tool, ensure the following software and Python packages are installe
 - `joblib`: For loading pre-trained models.
 - `rdkit`: For generating cheminformatics descriptors.
 - `cclib`: For parsing Gaussian output files.
-- `periodictable`: For atomic property lookups.
+- `OpenBabel`: Converts SMILES strings to 3D structures.
 
 Install the Python packages with:
 
 ```bash
-pip install pandas joblib rdkit cclib periodictable
+pip install pandas joblib rdkit cclib openbabel
 ```
 
 ## Usage Workflow
