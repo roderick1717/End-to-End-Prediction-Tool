@@ -8,5 +8,7 @@ To use this tool, ensure the following software and Python packages are installe
 **Multiwfn：** Used to extract descriptors from Gaussian output files.
 
 **OpenBabel：** Converts SMILES strings to 3D structures.
+
 ### Python Packages
-Panda joblib rdkit cclib periodictable
+Install the Python packages with:
+'pip install pandas joblib rdkit cclib periodictable'
