@@ -1,4 +1,4 @@
-# End-to-End-Prediction Tool
+# End-to-End Prediction Tool
 
 This tool is designed for the rapid prediction of reactivity and additive selection in the AD-HoC catalytic system. It automates the process of generating molecular descriptors using quantum chemical calculations and feature extraction, followed by predictions using pre-trained machine learning models. The workflow integrates Gaussian for quantum chemical calculations, Multiwfn and RDKit for descriptor extraction, and pre-trained models for final predictions.
 
