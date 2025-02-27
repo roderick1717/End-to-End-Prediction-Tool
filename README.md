@@ -4,10 +4,7 @@ This repository contains a tool for end-to-end prediction of molecular propertie
 To use this tool, ensure the following software and Python packages are installed:
 ### Software
 **Gaussian 16：** Required for quantum chemical calculations.
-
 **Multiwfn：** Used to extract descriptors from Gaussian output files.
-
 **OpenBabel：** Converts SMILES strings to 3D structures.
-
 ### Python Packages
 Panda joblib rdkit cclib periodictable
