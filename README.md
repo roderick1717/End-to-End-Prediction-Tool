@@ -9,7 +9,8 @@ To use this tool, ensure the following software and Python packages are installe
 ### Software
 
 - **Gaussian 16**: Required for quantum chemical calculations. 
-- **Multiwfn**: Used to extract descriptors from Gaussian output files. 
+- **Multiwfn**: Used to extract descriptors from Gaussian output files.
+- **OpenBabel**: Converts SMILES strings to 3D structures.
 
 ### Python Packages
 
@@ -17,15 +18,13 @@ To use this tool, ensure the following software and Python packages are installe
 - `joblib`: For loading pre-trained models.
 - `RDKit`: For generating cheminformatics descriptors.
 - `cclib`: For parsing Gaussian output files.
-- `OpenBabel`: Converts SMILES strings to 3D structures.
 
 Install the Python packages with:
 
 ```bash
-pip install pandas joblib rdkit cclib openbabel
+pip install pandas joblib rdkit cclib
 ```
 
 ## Usage
 
-You need to first modify the SMILES of the substrate molecules and their solvents in the `SMILES-target.slurm` script, then submit the job, and finally run the `load_model.py` file.
-The solvents include **DMA** (N,N-Dimethylacetamide), **DMF** (N,N-Dimethylformamide), **DMSO** (Dimethyl sulfoxide), and **ACN** (Acetonitrile).
+You need to first modify the SMILES of the substrate molecules and their solvents in the SMILES-target.slurm script, ensuring that the appropriate environment variables for related software packages (such as Open Babel, Gaussian, and Multiwfn) are correctly set, then submit the job using SLURM, and finally run the load_model.py file to obtain predictions. The supported solvents include **DMA** (N,N-Dimethylacetamide), **DMF** (N,N-Dimethylformamide), **DMSO** (Dimethyl sulfoxide), and **ACN** (Acetonitrile).
