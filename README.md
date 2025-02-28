@@ -15,7 +15,7 @@ To use this tool, ensure the following software and Python packages are installe
 
 - `pandas`: For data manipulation.
 - `joblib`: For loading pre-trained models.
-- `rdkit`: For generating cheminformatics descriptors.
+- `RDKit`: For generating cheminformatics descriptors.
 - `cclib`: For parsing Gaussian output files.
 - `OpenBabel`: Converts SMILES strings to 3D structures.
 
