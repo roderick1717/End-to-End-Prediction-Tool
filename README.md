@@ -16,7 +16,7 @@ To use this tool, ensure the following software and Python packages are installe
 
 - `pandas`: For data manipulation.
 - `joblib`: For loading pre-trained models.
-- `RDKit`: For generating cheminformatics descriptors.
+- `RDkit`: For generating cheminformatics descriptors.
 - `cclib`: For parsing Gaussian output files.
 
 Install the Python packages with:
