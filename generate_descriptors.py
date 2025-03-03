@@ -1,7 +1,6 @@
 import re
 import os
 import pandas as pd
-
 def extract_cdd_e(file_path):
     with open(file_path, 'r') as file:
         lines = file.readlines()
@@ -21,8 +20,6 @@ def extract_cdd_e(file_path):
     
     min_cdd = min(cdd_values) if cdd_values else None
     return min_cdd
-
-
 def extract_hardness_e(file_path):
     with open(file_path, 'r') as file:
         content = file.read()
@@ -30,43 +27,35 @@ def extract_hardness_e(file_path):
     hardness_match = hardness_pattern.search(content)
     hardness_value = float(hardness_match.group(1)) if hardness_match else None
     return hardness_value
-
-
 def extract_f_plus_max(file_path):
     try:
         with open(file_path, 'r') as file:
             lines = file.readlines()
     except FileNotFoundError:
-        print(f"Error: {file_path} not found.")
+        print(f" error ：Not Found {file_path}")
         return None
-    
     f_plus_values = []
-    is_in_f_plus_section = False
-    
+    f_plus_index = None
     for line in lines:
         if "Atom     q(N)    q(N+1)   q(N-1)     f-       f+       f0      CDD" in line:
-            is_in_f_plus_section = True
-            print(f"Found f+ section in {file_path}")
+            headers = line.strip().split()
+            f_plus_index = headers.index("f+")  
             continue
-        if is_in_f_plus_section:
+        if f_plus_index is not None:
             if line.strip() == "":
                 break
-            match = re.match(r'\s*\d+\s*\(\w+\)\s+([-+]?\d*\.\d+)\s+([-+]?\d*\.\d+)\s+([-+]?\d*\.\d+)\s+([-+]?\d*\.\d+)\s+([-+]?\d*\.\d+)\s+([-+]?\d*\.\d+)\s+([-+]?\d*\.\d+)', line)
-            if match:
-                f_plus = float(match.group(5))  
+            columns = line.strip().split()
+            try:
+                f_plus = float(columns[f_plus_index])
                 f_plus_values.append(f_plus)
-                print(f"Extracted f+: {f_plus}")
+            except (IndexError, ValueError):
+                continue
     if f_plus_values:
         max_f_plus = max(f_plus_values)
-        print(f"Max f+: {max_f_plus}")
         return max_f_plus
     else:
-        print(f"No f+ values found in {file_path}")
+        print(f" Not Found {file_path}  f+ Value")
         return None
-
-
-
-
 def process_multiwfn_descriptors(multiwfn_file_path, rdkit_file_path):
     multiwfn_df = pd.read_csv(multiwfn_file_path)
     e_row_mw = multiwfn_df.loc[multiwfn_df['SampleName'] == 'E'].drop(columns=['SampleName'])
@@ -84,8 +73,6 @@ def process_multiwfn_descriptors(multiwfn_file_path, rdkit_file_path):
         axis=1
     )
     return processed_df
-
-
 def process_files_and_merge(directory_path):
     e_cdft_file = os.path.join(directory_path, 'E_CDFT.txt')
     nu_cdft_file = os.path.join(directory_path, 'Nu_CDFT.txt')
@@ -102,7 +89,6 @@ def process_files_and_merge(directory_path):
     processed_multiwfn_df = process_multiwfn_descriptors(multiwfn_file, rdkit_file)
     final_df = pd.concat([processed_multiwfn_df, extracted_results_df], axis=1)
     return final_df
-
 directory_path = '.'  
 final_results_df = process_files_and_merge(directory_path)
 final_output_path = 'Descriptors.csv'

@@ -2,14 +2,12 @@
 # 20230407苏禹铭编写用于提取multiwfn的分子描述符
 # Modified by Jianyong Yuan
 # Modified by Roderick 2024.11.11
-
 import datetime
 import os
 import re
 import subprocess
 import time
 import pandas as pd
-
 def call_Multiwfn(all_target_files):
     result_file_list = []
     total_num_files = len(all_target_files)

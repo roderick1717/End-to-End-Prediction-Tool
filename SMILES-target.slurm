@@ -5,7 +5,7 @@
 #SBATCH -J SMILES_target
 #SBATCH -o SMILES_target.o%j
 #SBATCH -N 1
-#SBATCH --ntasks-per-node=8
+#SBATCH --ntasks-per-node=16
 #SBATCH -t 1538:00:00
 #############################################################################
 #    -J: name of job
@@ -17,17 +17,20 @@
 #    -p: partition requested
 #    -w: request a specific list of hosts
 #############################################################################
-# Need to activate the conda environment that has OpenBabel/cclib installed 
+# Need to activate the conda environment that has OpenBabel/cclib/RDKit installed 
 # Created by Roderick
 module load anaconda3
 module load gauss/g16c01
 export Multiwfnpath="/opt/soft/Multiwfn/3.8_dev_20231225"
 export PATH="$PATH:$Multiwfnpath"
-export BABEL_LIBDIR="/datapool/home/fanly/.conda/envs/chem/lib/openbabel/3.1.0"
+export PATH="$HOME/openbabel/bin:$PATH"
+export LD_LIBRARY_PATH="$HOME/openbabel/lib:$LD_LIBRARY_PATH"
+export BABEL_LIBDIR="$HOME/openbabel/lib/openbabel/3.1.0"
+export BABEL_DATADIR="$HOME/openbabel/share/openbabel/3.1.0"
 export KMP_STACKSIZE=100000000
 export GAUSS_MEMDEF=16GB
 cd $SLURM_SUBMIT_DIR
-SMILES_STRINGS=("CCOC(=O)CCS" "CCOC(=O)C1=CC=C(Br)C=C1") 
+SMILES_STRINGS=("CCOC(=O)CCS" "CCOC(=O)C1=CC=C(Br)C=C1")
 SOLVENTS=("DMA" "DMA")
 OUTPUT_FILES=("Nu.gjf" "E.gjf")
 for i in ${!SMILES_STRINGS[@]}; do
