@@ -30,5 +30,8 @@ pip install pandas joblib rdkit cclib
 You need to first modify the SMILES of the substrate molecules and their solvents in the SMILES-target.slurm script, ensuring that the appropriate environment variables for related software packages (such as Open Babel, Gaussian, and Multiwfn) are correctly set, then submit the job using SLURM, and finally run the load_model.py file to obtain predictions. The supported solvents include **DMA** (N,N-Dimethylacetamide), **DMF** (N,N-Dimethylformamide), **DMSO** (Dimethyl sulfoxide), and **ACN** (Acetonitrile).
 
 ## Citation
-L. Fan, X. Li, X. Luo, B. Zhu, W. Guan, “Data‐Driven Prediction of Reactivity and Additive Selection for C(sp2 )–(Hetero)Atom Bond Couplings in an Adaptive Dynamic Homogeneous Catalysis” Chemistry A European J **2025**, e202500935.
+L. Fan, X. Li, X. Luo, B. Zhu, W. Guan, “Data‐Driven Prediction of Reactivity and Additive Selection for C(sp2 )–(Hetero)Atom Bond Couplings in an Adaptive Dynamic Homogeneous Catalysis” Chemistry A European J 2025, e202500935.
+
+
+
 
